@@ -126,3 +126,9 @@ for isim in s {
 
 var isimler : [String] = ["Ahmet", "Ayşe", "Canan","Onur", "Ayşe"]
 isimSay(isimlerim: isimler)
+
+
+func iller(iller : [String]) {
+    
+    
+}
