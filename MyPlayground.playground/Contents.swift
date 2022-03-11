@@ -158,3 +158,54 @@ func enBasariliOgrenciyiBul(sinif : [String : [Float]]){
 
 var sinifNotlari : [String : [Float]] = ["Ayşe" : [50,60], "Yasin" : [40,60], "Sema" : [80,90], "Yılmaz" : [100,20], "Selin" : [50,75], "Caner" : [90,95] ]
 enBasariliOgrenciyiBul(sinif: sinifNotlari)
+
+
+// fonksiyon değer döndürme
+
+func kontrolEt(sayi : Int) -> String {
+    
+    if sayi % 2 == 0 {
+        return "Çift"
+    }else {
+        return "Tek"
+    }
+}
+
+for sayac in (1...10){
+    let deger = kontrolEt(sayi: sayac)
+    print("\(sayac) => \(deger)")
+}
+//negatif sayıyı bulma
+func negatifSayiyiBul(sayilarim : [Int]) -> [Int] {
+    var negatifler : [Int] = [Int]()
+    
+    for deger in sayilarim {
+        if deger < 0 {
+            negatifler.append(deger)
+        }
+    }
+        return negatifler
+}
+var sayilar : [Int] = [10, -20, 0, -10, -40, 60]
+var negatifler = negatifSayiyiBul(sayilarim: sayilar)
+print(negatifler)
+
+// tuple
+
+
+func ikiNoktaArasindakiUzakligiBul(nokta1: (xDegeri: Int, yDegeri: Int), nokta2 : (xDegeri : Int, yDegeri : Int)) {
+    
+    var xFark = nokta1.xDegeri - nokta2.xDegeri
+    var yFark = nokta1.yDegeri - nokta2.yDegeri
+    
+    xFark *= xFark
+    yFark *= yFark
+    
+    let uzaklik : Double = Double(xFark + yFark).squareRoot()
+    print("2 nokta arasındaki uzaklık : \(uzaklik)")
+}
+
+var n1 = (xDegeri : 6, yDegeri : 8)
+var n2 = (xDegeri : 3, yDegeri : 4 )
+ikiNoktaArasindakiUzakligiBul(nokta1: n1, nokta2: n2)
+
