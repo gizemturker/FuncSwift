@@ -128,7 +128,33 @@ var isimler : [String] = ["Ahmet", "Ayşe", "Canan","Onur", "Ayşe"]
 isimSay(isimlerim: isimler)
 
 
-func iller(iller : [String]) {
+// isimleri ve vize notları bulunan öğrencinin en başarılı olanını bulma
+
+func enBasariliOgrenciyiBul(sinif : [String : [Float]]){
+    var maxOrtalama : Float = -1.0
+    var maxKisi = ""
     
-    
+    for kisi in sinif {
+        let vizeNotu : Float = kisi.value[0]
+        let finalNotu : Float = kisi.value[1]
+        let ortalama : Float = vizeNotu*0.4 + finalNotu*0.6
+        
+        if ortalama > maxOrtalama {
+            maxKisi = kisi.key
+            maxOrtalama = ortalama
+        }
+    }
+    let vizeNotu = sinif[maxKisi]![0]
+    let finalNotu = sinif[maxKisi]![1]
+    print("""
+        Sınıfın en başarılı öğrencisinin
+        Adı : \(maxKisi)
+        Vize Notu : \(vizeNotu)
+        Final Notu : \(finalNotu)
+        Ortalaması : \(maxOrtalama)
+""")
 }
+
+
+var sinifNotlari : [String : [Float]] = ["Ayşe" : [50,60], "Yasin" : [40,60], "Sema" : [80,90], "Yılmaz" : [100,20], "Selin" : [50,75], "Caner" : [90,95] ]
+enBasariliOgrenciyiBul(sinif: sinifNotlari)
